@@ -125,6 +125,18 @@
             text-decoration: none;
         }
 
+        .image-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 0.5rem 0 1rem;
+        }
+
+        .image-row img {
+            display: block;
+        }
+
         footer {
             margin-top: 4rem;
             padding-top: 2rem;
@@ -249,7 +261,11 @@
     <main class="container">
         <section>
 
-            <img src="../flutter_logo.png" alt="" loading="eager" decoding="async" style="width:150px; height:auto;" />
+            <div class="image-row">
+                <img src="../flutter_logo.png" alt="" loading="eager" decoding="async"
+                    style="width:130px; height:auto;" />
+                <img src="../omakuva.jpeg" alt="" loading="eager" decoding="async" style="width:150px; height:auto;" />
+            </div>
 
             <h2>Tietoa konsultista</h2>
             <p>
