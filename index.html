@@ -37,7 +37,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
                 Roboto, Helvetica, Arial, sans-serif;
             color: var(--text);
-            background: var(--bg);
+            background: linear-gradient(180deg, #fdfdfd 0%, #fdfdfd 100%);
             line-height: 1.6;
         }
 
@@ -67,6 +67,21 @@
         h1 {
             font-size: 2.4rem;
             margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .flutter-logo {
+            width: 44px;
+            height: 44px;
+            flex: 0 0 auto;
+        }
+
+        .flutter-logo img {
+            display: block;
+            width: 100%;
+            height: 100%;
         }
 
         h2 {
@@ -108,6 +123,18 @@
         .references a {
             color: var(--primary);
             text-decoration: none;
+        }
+
+        .image-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin: 0.5rem 0 1rem;
+        }
+
+        .image-row img {
+            display: block;
         }
 
         footer {
@@ -208,7 +235,11 @@
             <a href="/" lang="en">EN</a> |
             <a href="/fi/" lang="fi">FI</a>
         </nav>
-        <h1>Flutter Consulting & App Development</h1>
+        <img src="./flutter_logo.png" alt="" loading="eager" decoding="async"
+            style="width:150px; height:auto; margin-top:50px;" />
+        <h1>
+            Flutter Consulting & App Development
+        </h1>
 
         <p>
             Senior Flutter consultant based in Finland. I help companies design,
@@ -229,6 +260,10 @@
 
     <main class="container">
         <section>
+            <div class="image-row">
+                <img src="./omakuva.jpeg" alt="" loading="eager" decoding="async"
+                    style="width:90px; height:90px; border-radius:50%; object-fit:cover; box-shadow: 0 6px 14px rgba(0,0,0,0.18);" />
+            </div>
             <h2>About the Consultant</h2>
             <p>
                 I am Jarno Tossavainen, a Flutter-focused software consultant operating
@@ -316,6 +351,8 @@
                 If you are looking for a Flutter consultant for your next project,
                 feel free to get in touch.
             </p>
+            <img src="./JTAppsLogo.png" alt="" loading="eager" decoding="async"
+                style="width:70px; height:70px; margin-top:30px; border-radius:12px; box-shadow: 0 6px 14px rgba(0,0,0,0.18);" />
             <p>
                 <strong>Company:</strong> Jarno Tossavainen Apps<br />
                 <strong>Location:</strong> Finland<br />
