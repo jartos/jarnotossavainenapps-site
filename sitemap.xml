@@ -16,6 +16,26 @@
       href="https://www.jarnotossavainenapps.fi/fi/" />
     <xhtml:link
       rel="alternate"
+      hreflang="sv"
+      href="https://www.jarnotossavainenapps.fi/se/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="no"
+      href="https://www.jarnotossavainenapps.fi/no/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="da"
+      href="https://www.jarnotossavainenapps.fi/da/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="de"
+      href="https://www.jarnotossavainenapps.fi/de/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="https://www.jarnotossavainenapps.fi/fr/" />
+    <xhtml:link
+      rel="alternate"
       hreflang="x-default"
       href="https://www.jarnotossavainenapps.fi/" />
   </url>
@@ -31,6 +51,211 @@
       rel="alternate"
       hreflang="en"
       href="https://www.jarnotossavainenapps.fi/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="sv"
+      href="https://www.jarnotossavainenapps.fi/se/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="no"
+      href="https://www.jarnotossavainenapps.fi/no/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="da"
+      href="https://www.jarnotossavainenapps.fi/da/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="de"
+      href="https://www.jarnotossavainenapps.fi/de/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="https://www.jarnotossavainenapps.fi/fr/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://www.jarnotossavainenapps.fi/" />
+  </url>
+
+  <!-- Swedish version -->
+  <url>
+    <loc>https://www.jarnotossavainenapps.fi/se/</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="sv"
+      href="https://www.jarnotossavainenapps.fi/se/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://www.jarnotossavainenapps.fi/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="fi"
+      href="https://www.jarnotossavainenapps.fi/fi/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="no"
+      href="https://www.jarnotossavainenapps.fi/no/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="da"
+      href="https://www.jarnotossavainenapps.fi/da/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="de"
+      href="https://www.jarnotossavainenapps.fi/de/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="https://www.jarnotossavainenapps.fi/fr/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://www.jarnotossavainenapps.fi/" />
+  </url>
+
+  <!-- Norwegian version -->
+  <url>
+    <loc>https://www.jarnotossavainenapps.fi/no/</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="no"
+      href="https://www.jarnotossavainenapps.fi/no/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://www.jarnotossavainenapps.fi/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="fi"
+      href="https://www.jarnotossavainenapps.fi/fi/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="sv"
+      href="https://www.jarnotossavainenapps.fi/se/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="da"
+      href="https://www.jarnotossavainenapps.fi/da/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="de"
+      href="https://www.jarnotossavainenapps.fi/de/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="https://www.jarnotossavainenapps.fi/fr/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://www.jarnotossavainenapps.fi/" />
+  </url>
+
+  <!-- Danish version -->
+  <url>
+    <loc>https://www.jarnotossavainenapps.fi/da/</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="da"
+      href="https://www.jarnotossavainenapps.fi/da/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://www.jarnotossavainenapps.fi/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="fi"
+      href="https://www.jarnotossavainenapps.fi/fi/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="sv"
+      href="https://www.jarnotossavainenapps.fi/se/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="no"
+      href="https://www.jarnotossavainenapps.fi/no/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="de"
+      href="https://www.jarnotossavainenapps.fi/de/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="https://www.jarnotossavainenapps.fi/fr/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://www.jarnotossavainenapps.fi/" />
+  </url>
+
+  <!-- German version -->
+  <url>
+    <loc>https://www.jarnotossavainenapps.fi/de/</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="de"
+      href="https://www.jarnotossavainenapps.fi/de/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://www.jarnotossavainenapps.fi/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="fi"
+      href="https://www.jarnotossavainenapps.fi/fi/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="sv"
+      href="https://www.jarnotossavainenapps.fi/se/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="no"
+      href="https://www.jarnotossavainenapps.fi/no/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="da"
+      href="https://www.jarnotossavainenapps.fi/da/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="https://www.jarnotossavainenapps.fi/fr/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://www.jarnotossavainenapps.fi/" />
+  </url>
+
+  <!-- French version -->
+  <url>
+    <loc>https://www.jarnotossavainenapps.fi/fr/</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="https://www.jarnotossavainenapps.fi/fr/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://www.jarnotossavainenapps.fi/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="fi"
+      href="https://www.jarnotossavainenapps.fi/fi/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="sv"
+      href="https://www.jarnotossavainenapps.fi/se/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="no"
+      href="https://www.jarnotossavainenapps.fi/no/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="da"
+      href="https://www.jarnotossavainenapps.fi/da/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="de"
+      href="https://www.jarnotossavainenapps.fi/de/" />
     <xhtml:link
       rel="alternate"
       hreflang="x-default"
