@@ -460,6 +460,7 @@
                     required></textarea>
                 <button type="submit">Lähetä</button>
             </form>
+            <p id="contactFormStatus" style="margin-top:0.75rem;"></p>
         </section>
     </main>
 
@@ -474,12 +475,15 @@
             const form = document.getElementById('contactForm');
             if (!form) return;
 
+            const statusEl = document.getElementById('contactFormStatus');
+
             form.addEventListener('submit', async function (event) {
                 // Submit via fetch so we can clear fields after a successful submit.
                 event.preventDefault();
 
                 const submitBtn = form.querySelector('button[type="submit"]');
                 if (submitBtn) submitBtn.disabled = true;
+                if (statusEl) statusEl.textContent = '';
 
                 try {
                     const formData = new FormData(form);
@@ -493,12 +497,15 @@
 
                     if (response.ok) {
                         form.reset();
+                        if (statusEl) statusEl.textContent = 'Kiitos! Viestisi lähetettiin.';
                     } else {
                         try {
                             await response.json();
                         } catch (_) { }
+                        if (statusEl) statusEl.textContent = 'Virhe lähetyksessä. Yritä uudelleen.';
                     }
                 } catch (e) {
+                    if (statusEl) statusEl.textContent = 'Verkkovirhe. Yritä uudelleen.';
                 } finally {
                     if (submitBtn) submitBtn.disabled = false;
                 }

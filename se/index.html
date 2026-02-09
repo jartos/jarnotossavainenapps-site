@@ -356,6 +356,7 @@
                 <textarea name="message" placeholder="Kontakta mig om Flutter-konsulting" required></textarea>
                 <button type="submit">Skicka</button>
             </form>
+            <p id="contactFormStatus" style="margin-top:0.75rem;"></p>
         </section>
     </main>
 
@@ -370,12 +371,15 @@
             const form = document.getElementById('contactForm');
             if (!form) return;
 
+            const statusEl = document.getElementById('contactFormStatus');
+
             form.addEventListener('submit', async function (event) {
                 // Submit via fetch so we can clear fields after a successful submit.
                 event.preventDefault();
 
                 const submitBtn = form.querySelector('button[type="submit"]');
                 if (submitBtn) submitBtn.disabled = true;
+                if (statusEl) statusEl.textContent = '';
 
                 try {
                     const formData = new FormData(form);
@@ -389,12 +393,15 @@
 
                     if (response.ok) {
                         form.reset();
+                        if (statusEl) statusEl.textContent = 'Tack! Ditt meddelande har skickats.';
                     } else {
                         try {
                             await response.json();
                         } catch (_) { }
+                        if (statusEl) statusEl.textContent = 'Något gick fel. Försök igen.';
                     }
                 } catch (e) {
+                    if (statusEl) statusEl.textContent = 'Nätverksfel. Försök igen.';
                 } finally {
                     if (submitBtn) submitBtn.disabled = false;
                 }
