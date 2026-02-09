@@ -451,7 +451,7 @@
             <h2>Yhteydenottopyyntö</h2>
             <p>
                 Lähetä minulle viesti, jos haluat keskustella Flutter-konsultoinnista tai tarvitset lisätietoja
-                palveluistani. Vastaan kaikkiin yhteydenottoihin mahdollisimman pian.
+                palveluistani.
             </p>
             <form id="contactForm" action="https://formspree.io/f/mpqjwdzd" method="POST">
                 <input type="text" name="name" placeholder="Nimi" required>
@@ -497,7 +497,7 @@
 
                     if (response.ok) {
                         form.reset();
-                        if (statusEl) statusEl.textContent = 'Kiitos! Viestisi lähetettiin.';
+                        if (statusEl) statusEl.textContent = 'Kiitos! Vastaan kaikkiin yhteydenottoihin mahdollisimman pian.';
                     } else {
                         try {
                             await response.json();
