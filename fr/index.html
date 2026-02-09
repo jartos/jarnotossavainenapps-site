@@ -350,7 +350,7 @@
                 mes services.
                 Je vous répondrai dès que possible.
             </p>
-            <form action="https://formspree.io/f/mpqjwdzd" method="POST">
+            <form id="contactForm" action="https://formspree.io/f/mpqjwdzd" method="POST">
                 <input type="text" name="name" placeholder="Votre nom" required>
                 <input type="email" name="email" placeholder="Votre e-mail" required>
                 <textarea name="message" placeholder="Contactez-moi au sujet du conseil Flutter" required></textarea>
@@ -364,6 +364,43 @@
             © 2026 Jarno Tossavainen Apps – Conseil Flutter en Finlande.
         </p>
     </footer>
+
+    <script>
+        (function () {
+            const form = document.getElementById('contactForm');
+            if (!form) return;
+
+            form.addEventListener('submit', async function (event) {
+                // Submit via fetch so we can clear fields after a successful submit.
+                event.preventDefault();
+
+                const submitBtn = form.querySelector('button[type="submit"]');
+                if (submitBtn) submitBtn.disabled = true;
+
+                try {
+                    const formData = new FormData(form);
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        form.reset();
+                    } else {
+                        try {
+                            await response.json();
+                        } catch (_) { }
+                    }
+                } catch (e) {
+                } finally {
+                    if (submitBtn) submitBtn.disabled = false;
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>

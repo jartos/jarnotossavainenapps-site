@@ -446,7 +446,7 @@
                 Send me a message if you want to discuss Flutter consulting or need more information about my services.
                 I'll get back to you as soon as possible.
             </p>
-            <form action="https://formspree.io/f/mpqjwdzd" method="POST">
+            <form id="contactForm" action="https://formspree.io/f/mpqjwdzd" method="POST">
                 <input type="text" name="name" placeholder="Your name" required>
                 <input type="email" name="email" placeholder="Your email" required>
                 <textarea name="message" placeholder="Contact me about Flutter consulting" required></textarea>
@@ -460,6 +460,43 @@
             © 2026 Jarno Tossavainen Apps – Flutter consulting services in Finland.
         </p>
     </footer>
+
+    <script>
+        (function () {
+            const form = document.getElementById('contactForm');
+            if (!form) return;
+
+            form.addEventListener('submit', async function (event) {
+                // Submit via fetch so we can clear fields after a successful submit.
+                event.preventDefault();
+
+                const submitBtn = form.querySelector('button[type="submit"]');
+                if (submitBtn) submitBtn.disabled = true;
+
+                try {
+                    const formData = new FormData(form);
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        form.reset();
+                    } else {
+                        try {
+                            const data = await response.json();
+                        } catch (_) { }
+                    }
+                } catch (e) {
+                } finally {
+                    if (submitBtn) submitBtn.disabled = false;
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>
