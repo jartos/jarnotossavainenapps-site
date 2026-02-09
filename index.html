@@ -490,6 +490,8 @@
                     if (response.ok) {
                         form.reset();
                         if (statusEl) statusEl.textContent = 'Thanks! Your message was sent.';
+                        // Conversion tracking page for Google Ads
+                        window.location.assign('/thanks/');
                     } else {
                         try {
                             const data = await response.json();

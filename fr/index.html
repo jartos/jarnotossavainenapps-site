@@ -394,6 +394,8 @@
                     if (response.ok) {
                         form.reset();
                         if (statusEl) statusEl.textContent = 'Merci ! Votre message a été envoyé.';
+                        // Suivi de conversion (Google Ads)
+                        window.location.assign('/thanks/');
                     } else {
                         try {
                             await response.json();

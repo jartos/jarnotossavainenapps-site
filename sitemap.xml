@@ -40,6 +40,12 @@
       href="https://www.jarnotossavainenapps.fi/" />
   </url>
 
+    <url>
+      <loc>https://www.jarnotossavainenapps.fi/thanks/</loc>
+      <lastmod>2026-02-09</lastmod>
+      <priority>0.1</priority>
+    </url>
+
   <!-- Finnish version -->
   <url>
     <loc>https://www.jarnotossavainenapps.fi/fi/</loc>

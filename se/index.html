@@ -394,6 +394,8 @@
                     if (response.ok) {
                         form.reset();
                         if (statusEl) statusEl.textContent = 'Tack! Ditt meddelande har skickats.';
+                        // Konverteringsspårning (Google Ads)
+                        window.location.assign('/thanks/');
                     } else {
                         try {
                             await response.json();

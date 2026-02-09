@@ -498,6 +498,8 @@
                     if (response.ok) {
                         form.reset();
                         if (statusEl) statusEl.textContent = 'Kiitos! Vastaan yhteydenottoosi mahdollisimman pian.';
+                        // Konversioseuranta (Google Ads)
+                        window.location.assign('/thanks/');
                     } else {
                         try {
                             await response.json();
