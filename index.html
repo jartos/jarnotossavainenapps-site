@@ -6,67 +6,129 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17899150378"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
 
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
         gtag('config', 'AW-17899150378');
     </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Flutter Consultant Finland | Jarno Tossavainen Apps</title>
 
-    <meta name="description"
-        content="Senior Flutter consultant in Finland. I help companies design, build, and publish production-ready Flutter apps for iOS and Android." />
+    <meta
+        name="description"
+        content="Senior Flutter consultant in Finland. I help companies design, build, and publish production-ready Flutter apps for iOS and Android."
+    >
 
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow">
 
-    <!-- Canonical -->
-    <link rel="canonical" href="https://www.jarnotossavainenapps.fi/" />
+    <link
+        rel="canonical"
+        href="https://www.jarnotossavainenapps.fi/"
+    >
 
-    <!-- Hreflang -->
-    <link rel="alternate" hreflang="en" href="https://www.jarnotossavainenapps.fi/" />
-    <link rel="alternate" hreflang="fi" href="https://www.jarnotossavainenapps.fi/fi/" />
-    <link rel="alternate" hreflang="sv" href="https://www.jarnotossavainenapps.fi/se/" />
-    <link rel="alternate" hreflang="no" href="https://www.jarnotossavainenapps.fi/no/" />
-    <link rel="alternate" hreflang="da" href="https://www.jarnotossavainenapps.fi/da/" />
-    <link rel="alternate" hreflang="de" href="https://www.jarnotossavainenapps.fi/de/" />
-    <link rel="alternate" hreflang="fr" href="https://www.jarnotossavainenapps.fi/fr/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.jarnotossavainenapps.fi/" />
+    <link
+        rel="alternate"
+        hreflang="en"
+        href="https://www.jarnotossavainenapps.fi/"
+    >
+
+    <link
+        rel="alternate"
+        hreflang="fi"
+        href="https://www.jarnotossavainenapps.fi/fi/"
+    >
+
+    <link
+        rel="alternate"
+        hreflang="sv"
+        href="https://www.jarnotossavainenapps.fi/se/"
+    >
+
+    <link
+        rel="alternate"
+        hreflang="no"
+        href="https://www.jarnotossavainenapps.fi/no/"
+    >
+
+    <link
+        rel="alternate"
+        hreflang="da"
+        href="https://www.jarnotossavainenapps.fi/da/"
+    >
+
+    <link
+        rel="alternate"
+        hreflang="de"
+        href="https://www.jarnotossavainenapps.fi/de/"
+    >
+
+    <link
+        rel="alternate"
+        hreflang="fr"
+        href="https://www.jarnotossavainenapps.fi/fr/"
+    >
+
+    <link
+        rel="alternate"
+        hreflang="x-default"
+        href="https://www.jarnotossavainenapps.fi/"
+    >
 
     <style>
         :root {
-            --primary: #02569B;
+            --primary: #02569b;
             --text: #1a1a1a;
-            --muted: #666;
-            --bg: #ffffff;
+            --muted: #666666;
+            --background: #ffffff;
         }
 
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                Roboto, Helvetica, Arial, sans-serif;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
             color: var(--text);
-            background: linear-gradient(180deg, #fdfdfd 0%, #fdfdfd 100%);
+            background: var(--background);
             line-height: 1.6;
         }
 
+        img {
+            max-width: 100%;
+        }
+
         .container {
-            max-width: 980px;
+            width: 100%;
+            max-width: 1180px;
             margin: 0 auto;
             padding: 3rem 1.5rem;
         }
 
         header {
             padding-bottom: 2rem;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #eeeeee;
         }
 
         nav {
@@ -75,35 +137,27 @@
         }
 
         nav a {
-            color: var(--primary);
-            text-decoration: none;
             margin-right: 0.5rem;
+            color: var(--primary);
             font-weight: 600;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
         }
 
         h1 {
-            font-size: 2.4rem;
+            margin-top: 1rem;
             margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .flutter-logo {
-            width: 44px;
-            height: 44px;
-            flex: 0 0 auto;
-        }
-
-        .flutter-logo img {
-            display: block;
-            width: 100%;
-            height: 100%;
+            font-size: clamp(2rem, 5vw, 2.4rem);
+            line-height: 1.2;
         }
 
         h2 {
             margin-top: 3rem;
             font-size: 1.6rem;
+            line-height: 1.3;
         }
 
         p {
@@ -111,8 +165,15 @@
         }
 
         .hero p {
-            font-size: 1.1rem;
             color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        .flutter-main-logo {
+            display: block;
+            width: 150px;
+            height: auto;
+            margin-top: 50px;
         }
 
         .cta {
@@ -122,24 +183,80 @@
         .cta a {
             display: inline-block;
             padding: 0.7rem 1.4rem;
-            background: var(--primary);
-            color: #fff;
-            text-decoration: none;
             border-radius: 4px;
+            color: #ffffff;
+            background: var(--primary);
             font-weight: 600;
-        }
-
-        ul {
-            max-width: 760px;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        .references a {
-            color: var(--primary);
             text-decoration: none;
+            transition:
+                transform 160ms ease,
+                filter 160ms ease;
+        }
+
+        .cta a:hover {
+            filter: brightness(0.94);
+            transform: translateY(-1px);
+        }
+
+        /*
+         * Kaikki kolme kuvagalleriaa.
+         */
+        .hero-app-galleries {
+            display: grid;
+            gap: clamp(0.75rem, 2vw, 1.5rem);
+            width: 100%;
+            margin: 2.25rem 0 1.5rem;
+        }
+
+        /*
+         * Jokaisella rivillä on aina viisi yhtä leveää saraketta.
+         */
+        .hero-app-gallery {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            align-items: start;
+            gap: clamp(0.25rem, 1.2vw, 1rem);
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /*
+         * Kuvan leveys määräytyy grid-sarakkeen mukaan.
+         * Kiinteää pikselileveyttä ei käytetä.
+         */
+        .hero-app-preview {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            height: auto;
+            margin: 0;
+            opacity: 0;
+            transform: translateY(10px) scale(0.94);
+            transform-origin: center;
+            will-change: opacity, transform;
+        }
+
+        .hero-app-preview.is-visible {
+            animation:
+                hero-preview-zoom
+                800ms
+                cubic-bezier(0.22, 1, 0.36, 1)
+                forwards;
+            animation-delay: var(--delay, 0ms);
+        }
+
+        @keyframes hero-preview-zoom {
+            from {
+                opacity: 0;
+                transform: translateY(10px) scale(0.94);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         .image-row {
@@ -154,11 +271,30 @@
             display: block;
         }
 
-        form {
+        ul {
             max-width: 760px;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .references a,
+        #contact a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .references a:hover,
+        #contact a:hover {
+            text-decoration: underline;
+        }
+
+        form {
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
+            max-width: 760px;
             margin-top: 1rem;
         }
 
@@ -166,10 +302,16 @@
         form textarea {
             width: 100%;
             padding: 0.7rem 0.8rem;
-            font: inherit;
-            border: 1px solid #ddd;
+            border: 1px solid #dddddd;
             border-radius: 8px;
-            background: #fff;
+            background: #ffffff;
+            font: inherit;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            border-color: var(--primary);
+            outline: 2px solid rgba(2, 86, 155, 0.15);
         }
 
         form textarea {
@@ -180,10 +322,10 @@
         form button {
             align-self: flex-start;
             padding: 0.7rem 1.2rem;
-            background: var(--primary);
-            color: #fff;
             border: none;
             border-radius: 8px;
+            color: #ffffff;
+            background: var(--primary);
             font: inherit;
             font-weight: 700;
             cursor: pointer;
@@ -193,101 +335,141 @@
             filter: brightness(0.95);
         }
 
+        form button:disabled {
+            cursor: wait;
+            opacity: 0.65;
+        }
+
         footer {
             margin-top: 4rem;
             padding-top: 2rem;
-            border-top: 1px solid #eee;
-            font-size: 0.9rem;
+            border-top: 1px solid #eeeeee;
             color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /*
+         * Pienellä näytöllä kuvat pysyvät viiden kuvan rivissä.
+         * Välejä ja sivun marginaaleja pienennetään.
+         */
+        @media (max-width: 640px) {
+            .container {
+                padding-right: 0.75rem;
+                padding-left: 0.75rem;
+            }
+
+            .hero-app-gallery {
+                gap: 0.2rem;
+            }
+
+            .hero-app-galleries {
+                gap: 0.65rem;
+            }
+        }
+
+        /*
+         * Animaatio poistetaan, jos käyttäjä on valinnut
+         * käyttöjärjestelmästä vähennetyt animaatiot.
+         */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .hero-app-preview,
+            .hero-app-preview.is-visible {
+                opacity: 1;
+                transform: none;
+                animation: none;
+            }
         }
     </style>
 
-    <!-- Structured Data -->
     <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "name": "Jarno Tossavainen",
-        "jobTitle": "Flutter Consultant",
-        "url": "https://www.jarnotossavainenapps.fi/",
-        "knowsAbout": [
-          "Flutter",
-          "Dart",
-          "Mobile App Development",
-          "UI/UX Design",
-          "Firebase",
-          "App Store and Google Play Publishing"
-        ]
-      },
-      {
-        "@type": "LocalBusiness",
-        "name": "Jarno Tossavainen Apps",
-        "areaServed": "Finland",
-        "url": "https://www.jarnotossavainenapps.fi/",
-        "description": "Flutter consulting services for companies. Mobile app development from idea to App Store and Google Play.",
-        "founder": {
-          "@type": "Person",
-          "name": "Jarno Tossavainen"
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Person",
+                    "name": "Jarno Tossavainen",
+                    "jobTitle": "Flutter Consultant",
+                    "url": "https://www.jarnotossavainenapps.fi/",
+                    "knowsAbout": [
+                        "Flutter",
+                        "Dart",
+                        "Mobile App Development",
+                        "UI/UX Design",
+                        "Firebase",
+                        "App Store and Google Play Publishing"
+                    ]
+                },
+                {
+                    "@type": "LocalBusiness",
+                    "name": "Jarno Tossavainen Apps",
+                    "areaServed": "Finland",
+                    "url": "https://www.jarnotossavainenapps.fi/",
+                    "description": "Flutter consulting services for companies. Mobile app development from idea to App Store and Google Play.",
+                    "founder": {
+                        "@type": "Person",
+                        "name": "Jarno Tossavainen"
+                    }
+                }
+            ]
         }
-      }
-    ]
-  }
-  </script>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Flutter Consulting & App Development",
-  "description": "Professional Flutter consulting services for companies. Mobile app development from idea to App Store and Google Play.",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "Jarno Tossavainen Apps",
-    "url": "https://www.jarnotossavainenapps.fi/"
-  },
-  "areaServed": {
-    "@type": "Country",
-    "name": "Finland"
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Flutter Consulting Services",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Flutter App Development",
-          "description": "End-to-end Flutter app development for iOS and Android."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Flutter UI/UX Implementation",
-          "description": "Pixel-perfect UI/UX implementation using Material and Cupertino design systems."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "App Store & Google Play Publishing",
-          "description": "Publishing, testing, and release management for App Store and Google Play."
-        }
-      }
-    ]
-  }
-}
-</script>
+    </script>
 
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Flutter Consulting & App Development",
+            "description": "Professional Flutter consulting services for companies. Mobile app development from idea to App Store and Google Play.",
+            "provider": {
+                "@type": "LocalBusiness",
+                "name": "Jarno Tossavainen Apps",
+                "url": "https://www.jarnotossavainenapps.fi/"
+            },
+            "areaServed": {
+                "@type": "Country",
+                "name": "Finland"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Flutter Consulting Services",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Flutter App Development",
+                            "description": "End-to-end Flutter app development for iOS and Android."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Flutter UI/UX Implementation",
+                            "description": "Pixel-perfect UI/UX implementation using Material and Cupertino design systems."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "App Store & Google Play Publishing",
+                            "description": "Publishing, testing, and release management for App Store and Google Play."
+                        }
+                    }
+                ]
+            }
+        }
+    </script>
 </head>
 
 <body>
     <header class="container hero">
-        <nav>
+        <nav aria-label="Language selection">
             <a href="/" lang="en">EN</a> |
             <a href="/fi/" lang="fi">FI</a> |
             <a href="/se/" lang="sv">SV</a> |
@@ -296,20 +478,27 @@
             <a href="/de/" lang="de">DE</a> |
             <a href="/fr/" lang="fr">FR</a>
         </nav>
-        <img src="./flutter_logo.png" alt="" loading="eager" decoding="async"
-            style="width:150px; height:auto; margin-top:50px;" />
-        <h1>
-            Flutter Consulting & App Development
-        </h1>
+
+        <img
+            class="flutter-main-logo"
+            src="/flutter_logo.png"
+            alt="Flutter logo"
+            loading="eager"
+            decoding="async"
+        >
+
+        <h1>Flutter Consulting &amp; App Development</h1>
 
         <p>
-            Senior Flutter consultant based in Finland. I help companies design,
-            build, and publish high-quality Flutter applications for iOS and Android.
+            Senior Flutter consultant based in Finland. I help companies
+            design, build, and publish high-quality Flutter applications
+            for iOS and Android.
         </p>
 
         <p>
-            I work with startups and established companies as a Flutter consultant, either as part of an existing team
-            or as a standalone developer.
+            I work with startups and established companies as a Flutter
+            consultant, either as part of an existing team or as a
+            standalone developer.
         </p>
 
         <p>
@@ -321,135 +510,289 @@
             <a href="#contact">Contact for consulting</a>
         </div>
 
-        <div class="hero-app-galleries" aria-label="Application screenshots">
+        <div
+            class="hero-app-galleries"
+            aria-label="Flutter application screenshots"
+        >
+            <!-- Rivi A: 1A–5A -->
+            <div
+                class="hero-app-gallery"
+                role="list"
+                aria-label="Research for JYU application screenshots"
+            >
+                <img
+                    class="hero-app-preview"
+                    src="/assets/app-images/1A.png"
+                    alt="Research for JYU observation recording screen"
+                    loading="eager"
+                    decoding="async"
+                    role="listitem"
+                    style="--delay: 0ms;"
+                >
 
-            <div class="hero-app-gallery" role="list">
-                <img class="hero-app-preview" src="/assets/app-images/1A.png"
-                    alt="Research application recording screen" role="listitem" style="--delay: 0ms;">
+                <img
+                    class="hero-app-preview"
+                    src="/assets/app-images/2A.png"
+                    alt="Research for JYU bird identification details"
+                    loading="lazy"
+                    decoding="async"
+                    role="listitem"
+                    style="--delay: 80ms;"
+                >
 
-                <img class="hero-app-preview" src="/assets/app-images/2A.png"
-                    alt="Research application identification screen" role="listitem" style="--delay: 80ms;">
+                <img
+                    class="hero-app-preview"
+                    src="/assets/app-images/3A.png"
+                    alt="Research for JYU bird identification evaluation"
+                    loading="lazy"
+                    decoding="async"
+                    role="listitem"
+                    style="--delay: 160ms;"
+                >
 
-                <img class="hero-app-preview" src="/assets/app-images/3A.png"
-                    alt="Research application evaluation screen" role="listitem" style="--delay: 160ms;">
+                <img
+                    class="hero-app-preview"
+                    src="/assets/app-images/4A.png"
+                    alt="Research for JYU observations list"
+                    loading="lazy"
+                    decoding="async"
+                    role="listitem"
+                    style="--delay: 240ms;"
+                >
 
-                <img class="hero-app-preview" src="/assets/app-images/4A.png"
-                    alt="Research application observations screen" role="listitem" style="--delay: 240ms;">
-
-                <img class="hero-app-preview" src="/assets/app-images/5A.png"
-                    alt="Research application identification gallery" role="listitem" style="--delay: 320ms;">
+                <img
+                    class="hero-app-preview"
+                    src="/assets/app-images/5A.png"
+                    alt="Research for JYU identified birds gallery"
+                    loading="lazy"
+                    decoding="async"
+                    role="listitem"
+                    style="--delay: 320ms;"
+                >
             </div>
 
-            <div class="hero-app-gallery" role="list">
-                <img class="hero-app-preview" src="/assets/app-images/1B.png" alt="Work shift application calendar"
-                    role="listitem" style="--delay: 0ms;">
+            <!-- Rivi B: 1B–5B -->
+            <div
+                class="hero-app-gallery"
+                role="list"
+                aria-label="Invenco Vuoro application screenshots"
+            >
+                <img
+                    class="hero-app-preview"
+                    src="/assets/app-images/1B.png"
+                    alt="Invenco Vuoro work shift calendar"
+                    loading="lazy"
+                    decoding="async"
+                    role="listitem"
+                    style="--delay: 0ms;"
+                >
 
-                <img class="hero-app-preview" src="/assets/app-images/2B.png" alt="Work hours summary" role="listitem"
-                    style="--delay: 80ms;">
+                <img
+                    class="hero-app-preview"
+                    src="/assets/app-images/2B.png"
+                    alt="Invenco Vuoro work hours summary"
+                    loading="lazy"
+                    decoding="async"
+                    role="listitem"
+                    style="--delay: 80ms;"
+                >
 
-                <img class="hero-app-preview" src="/assets/app-images/3B.png" alt="Available work shifts"
-                    role="listitem" style="--delay: 160ms;">
+                <img
+                    class="hero-app-preview"
+                    src="/assets/app-images/3B.png"
+                    alt="Invenco Vuoro available shifts dialog"
+                    loading="lazy"
+                    decoding="async"
+                    role="listitem"
+                    style="--delay: 160ms;"
+                >
 
-                <img class="hero-app-preview" src="/assets/app-images/4B.png" alt="Work shift conversation"
-                    role="listitem" style="--delay: 240ms;">
+                <img
+                    class="hero-app-preview"
+                    src="/assets/app-images/4B.png"
+                    alt="Invenco Vuoro team conversation"
+                    loading="lazy"
+                    decoding="async"
+                    role="listitem"
+                    style="--delay: 240ms;"
+                >
 
-                <img class="hero-app-preview" src="/assets/app-images/5B.png" alt="Project report" role="listitem"
-                    style="--delay: 320ms;">
+                <img
+                    class="hero-app-preview"
+                    src="/assets/app-images/5B.png"
+                    alt="Invenco Vuoro project report dialog"
+                    loading="lazy"
+                    decoding="async"
+                    role="listitem"
+                    style="--delay: 320ms;"
+                >
             </div>
 
-            <div class="hero-app-gallery" role="list">
-                <img class="hero-app-preview" src="/assets/app-images/1C.png" alt="Better Mind home screen"
-                    role="listitem" style="--delay: 0ms;">
+            <!-- Rivi C: 1C–5C -->
+            <div
+                class="hero-app-gallery"
+                role="list"
+                aria-label="Better Mind application screenshots"
+            >
+                <img
+                    class="hero-app-preview"
+                    src="/assets/app-images/1C.png"
+                    alt="Better Mind application home screen"
+                    loading="lazy"
+                    decoding="async"
+                    role="listitem"
+                    style="--delay: 0ms;"
+                >
 
-                <img class="hero-app-preview" src="/assets/app-images/2C.png" alt="Better Mind affirmation screen"
-                    role="listitem" style="--delay: 80ms;">
+                <img
+                    class="hero-app-preview"
+                    src="/assets/app-images/2C.png"
+                    alt="Better Mind affirmation player screen"
+                    loading="lazy"
+                    decoding="async"
+                    role="listitem"
+                    style="--delay: 80ms;"
+                >
 
-                <img class="hero-app-preview" src="/assets/app-images/3C.png" alt="Better Mind progress screen"
-                    role="listitem" style="--delay: 160ms;">
+                <img
+                    class="hero-app-preview"
+                    src="/assets/app-images/3C.png"
+                    alt="Better Mind journal and progress screen"
+                    loading="lazy"
+                    decoding="async"
+                    role="listitem"
+                    style="--delay: 160ms;"
+                >
 
-                <img class="hero-app-preview" src="/assets/app-images/4C.png" alt="Better Mind reminder settings"
-                    role="listitem" style="--delay: 240ms;">
+                <img
+                    class="hero-app-preview"
+                    src="/assets/app-images/4C.png"
+                    alt="Better Mind reminder schedule screen"
+                    loading="lazy"
+                    decoding="async"
+                    role="listitem"
+                    style="--delay: 240ms;"
+                >
 
-                <img class="hero-app-preview" src="/assets/app-images/5C.png" alt="Better Mind trophies screen"
-                    role="listitem" style="--delay: 320ms;">
+                <img
+                    class="hero-app-preview"
+                    src="/assets/app-images/5C.png"
+                    alt="Better Mind trophies screen"
+                    loading="lazy"
+                    decoding="async"
+                    role="listitem"
+                    style="--delay: 320ms;"
+                >
             </div>
-
         </div>
-
-
     </header>
 
     <main class="container">
         <section>
             <div class="image-row">
-                <img src="./omakuva.jpeg" alt="" loading="eager" decoding="async"
-                    style="width:90px; height:90px; border-radius:50%; object-fit:cover; box-shadow: 0 6px 14px rgba(0,0,0,0.18);" />
+                <img
+                    src="/omakuva.jpeg"
+                    alt="Jarno Tossavainen"
+                    loading="lazy"
+                    decoding="async"
+                    style="
+                        width: 90px;
+                        height: 90px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+                    "
+                >
             </div>
+
             <h2>About the Consultant</h2>
+
             <p>
-                I am Jarno Tossavainen, a Flutter-focused software consultant operating
-                through my company, Jarno Tossavainen Apps.
+                I am Jarno Tossavainen, a Flutter-focused software consultant
+                operating through my company, Jarno Tossavainen Apps.
             </p>
+
             <p>
-                By specializing exclusively in Flutter, I deliver production-ready
-                solutions with a deep understanding of both the framework and mobile
-                platforms.
+                By specializing exclusively in Flutter, I deliver
+                production-ready solutions with a deep understanding of both
+                the framework and mobile platforms.
             </p>
         </section>
 
         <section>
             <h2>Flutter Consulting Services</h2>
+
             <ul>
                 <li>Flutter app development from scratch</li>
                 <li>Pixel-perfect UI/UX implementation</li>
                 <li>Material and Cupertino design systems</li>
                 <li>Firebase integration and backend features</li>
-                <li>Accessibility (VoiceOver & TalkBack)</li>
-                <li>App Store & Google Play publishing</li>
+                <li>Accessibility with VoiceOver and TalkBack</li>
+                <li>App Store and Google Play publishing</li>
                 <li>Store listing marketing screenshots and app icons</li>
                 <li>Maintenance, improvements, and scaling</li>
             </ul>
         </section>
+
         <section>
-            <h2>Flutter Expertise & Technologies</h2>
+            <h2>Flutter Expertise &amp; Technologies</h2>
+
             <ul>
-                <li>Flutter & Dart</li>
+                <li>Flutter and Dart</li>
                 <li>Riverpod state management</li>
-                <li>Hive & local storage</li>
-                <li>Notifications & background tasks</li>
+                <li>Hive and local storage</li>
+                <li>Notifications and background tasks</li>
                 <li>Maps, animations, and audio recording</li>
-                <li>TensorFlow Lite & Google ML Kit</li>
-                <li>Android Manifest & iOS Info.plist configuration</li>
+                <li>TensorFlow Lite and Google ML Kit</li>
+                <li>Android Manifest and iOS Info.plist configuration</li>
             </ul>
         </section>
 
         <section class="references">
             <h2>Selected References</h2>
+
             <p>
-                Examples of Flutter applications published to official app stores:
+                Examples of Flutter applications published to official app
+                stores:
             </p>
+
             <ul>
                 <li>
-                    <a href="https://play.google.com/store/apps/details?id=fi.jyu.app.researchforjyumobile"
-                        target="_blank" rel="noopener">
+                    <a
+                        href="https://play.google.com/store/apps/details?id=fi.jyu.app.researchforjyumobile"
+                        target="_blank"
+                        rel="noopener"
+                    >
                         Research for JYU Mobile
                     </a>
                 </li>
+
                 <li>
-                    <a href="https://play.google.com/store/apps/details?id=com.invenco.vuoro" target="_blank"
-                        rel="noopener">
+                    <a
+                        href="https://play.google.com/store/apps/details?id=com.invenco.vuoro"
+                        target="_blank"
+                        rel="noopener"
+                    >
                         Invenco Vuoro
                     </a>
                 </li>
+
                 <li>
-                    <a href="https://play.google.com/store/apps/details?id=com.invenco.cash" target="_blank"
-                        rel="noopener">
+                    <a
+                        href="https://play.google.com/store/apps/details?id=com.invenco.cash"
+                        target="_blank"
+                        rel="noopener"
+                    >
                         Invenco Cash
                     </a>
                 </li>
+
                 <li>
-                    <a href="https://apps.apple.com/fi/app/better-mind-affirmations/id6756210215?l=fi" target="_blank"
-                        rel="noopener">
+                    <a
+                        href="https://apps.apple.com/fi/app/better-mind-affirmations/id6756210215?l=fi"
+                        target="_blank"
+                        rel="noopener"
+                    >
                         Better Mind – Affirmations
                     </a>
                 </li>
@@ -458,104 +801,247 @@
 
         <section>
             <h2>Why Work With a Flutter Specialist</h2>
+
             <p>
-                As a dedicated Flutter consultant, I focus on clean architecture,
-                maintainability, and platform compliance. My role is to help companies
-                deliver reliable, long-term mobile products.
+                As a dedicated Flutter consultant, I focus on clean
+                architecture, maintainability, and platform compliance. My role
+                is to help companies deliver reliable, long-term mobile
+                products.
             </p>
         </section>
+
         <section>
             <h2>Pricing</h2>
+
             <p>
-                <strong>Hourly rate:</strong> 75 € / hour + taxes.
+                <strong>Hourly rate:</strong>
+                75 € / hour + taxes.
             </p>
+
             <p>
-                Need a fixed-scope quote? Send a short description of your project and I’ll come back with an estimate.
+                Need a fixed-scope quote? Send a short description of your
+                project and I’ll come back with an estimate.
             </p>
         </section>
 
         <section id="contact">
             <h2>Contact</h2>
+
             <p>
-                If you are looking for a Flutter consultant for your next project,
-                feel free to get in touch.
+                If you are looking for a Flutter consultant for your next
+                project, feel free to get in touch.
             </p>
 
-            <img src="./JTAppsLogo.png" alt="" loading="eager" decoding="async"
-                style="width:70px; height:70px; margin-top:30px; border-radius:12px; box-shadow: 0 6px 14px rgba(0,0,0,0.18);" />
+            <img
+                src="/JTAppsLogo.png"
+                alt="Jarno Tossavainen Apps logo"
+                loading="lazy"
+                decoding="async"
+                style="
+                    width: 70px;
+                    height: 70px;
+                    margin-top: 30px;
+                    border-radius: 12px;
+                    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+                "
+            >
+
             <p>
-                <strong>Company:</strong> Jarno Tossavainen Apps<br />
-                <strong>Location:</strong> Finland<br />
-                <strong>Finnish Business ID (Y-tunnus):</strong> 3567327-2<br />
-                <strong>Email:</strong> jarnotossavainenapps@gmail.com<br />
-                <strong>Phone:</strong> +358 44 317 8480<br />
-                <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jarno-tossavainen/" target="_blank"
-                    rel="noopener">Jarno Tossavainen</a>
+                <strong>Company:</strong>
+                Jarno Tossavainen Apps
+                <br>
+
+                <strong>Location:</strong>
+                Finland
+                <br>
+
+                <strong>Finnish Business ID (Y-tunnus):</strong>
+                3567327-2
+                <br>
+
+                <strong>Email:</strong>
+                <a href="mailto:jarnotossavainenapps@gmail.com">
+                    jarnotossavainenapps@gmail.com
+                </a>
+                <br>
+
+                <strong>Phone:</strong>
+                <a href="tel:+358443178480">
+                    +358 44 317 8480
+                </a>
+                <br>
+
+                <strong>LinkedIn:</strong>
+                <a
+                    href="https://www.linkedin.com/in/jarno-tossavainen/"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Jarno Tossavainen
+                </a>
             </p>
         </section>
 
         <section id="contact-request">
             <h2>Contact request</h2>
+
             <p>
-                Send me a message if you want to discuss Flutter consulting or need more information about my services.
-                I'll get back to you as soon as possible.
+                Send me a message if you want to discuss Flutter consulting or
+                need more information about my services. I'll get back to you
+                as soon as possible.
             </p>
-            <form id="contactForm" action="https://formspree.io/f/mpqjwdzd" method="POST">
-                <input type="text" name="name" placeholder="Your name" required>
-                <input type="email" name="email" placeholder="Your email" required>
-                <textarea name="message" placeholder="Contact me about Flutter consulting" required></textarea>
+
+            <form
+                id="contactForm"
+                action="https://formspree.io/f/mpqjwdzd"
+                method="POST"
+            >
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Your name"
+                    autocomplete="name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Your email"
+                    autocomplete="email"
+                    required
+                >
+
+                <textarea
+                    name="message"
+                    placeholder="Contact me about Flutter consulting"
+                    required
+                ></textarea>
+
                 <button type="submit">Send</button>
             </form>
-            <p id="contactFormStatus" style="margin-top:0.75rem;"></p>
+
+            <p
+                id="contactFormStatus"
+                role="status"
+                aria-live="polite"
+                style="margin-top: 0.75rem;"
+            ></p>
         </section>
     </main>
 
     <footer class="container">
         <p>
-            © 2026 Jarno Tossavainen Apps – Flutter consulting services in Finland.
+            © 2026 Jarno Tossavainen Apps – Flutter consulting services in
+            Finland.
         </p>
     </footer>
 
     <script>
+        /*
+         * Käynnistää kuvien zoomausanimaation silloin,
+         * kun kuvat tulevat näkyviin.
+         */
+        (function () {
+            const previews =
+                document.querySelectorAll('.hero-app-preview');
+
+            if (!previews.length) {
+                return;
+            }
+
+            if (!('IntersectionObserver' in window)) {
+                previews.forEach(function (preview) {
+                    preview.classList.add('is-visible');
+                });
+
+                return;
+            }
+
+            const observer = new IntersectionObserver(
+                function (entries, currentObserver) {
+                    entries.forEach(function (entry) {
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
+
+                        entry.target.classList.add('is-visible');
+                        currentObserver.unobserve(entry.target);
+                    });
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+            previews.forEach(function (preview) {
+                observer.observe(preview);
+            });
+        })();
+
+        /*
+         * Lähettää yhteydenottolomakkeen Formspree-palveluun.
+         */
         (function () {
             const form = document.getElementById('contactForm');
-            if (!form) return;
 
-            const statusEl = document.getElementById('contactFormStatus');
+            if (!form) {
+                return;
+            }
+
+            const statusElement =
+                document.getElementById('contactFormStatus');
 
             form.addEventListener('submit', async function (event) {
-                // Submit via fetch so we can clear fields after a successful submit.
                 event.preventDefault();
 
-                const submitBtn = form.querySelector('button[type="submit"]');
-                if (submitBtn) submitBtn.disabled = true;
-                if (statusEl) statusEl.textContent = '';
+                const submitButton =
+                    form.querySelector('button[type="submit"]');
+
+                if (submitButton) {
+                    submitButton.disabled = true;
+                }
+
+                if (statusElement) {
+                    statusElement.textContent = '';
+                }
 
                 try {
                     const formData = new FormData(form);
+
                     const response = await fetch(form.action, {
                         method: form.method,
                         body: formData,
                         headers: {
-                            'Accept': 'application/json'
+                            Accept: 'application/json'
                         }
                     });
 
                     if (response.ok) {
                         form.reset();
-                        if (statusEl) statusEl.textContent = 'Thanks! Your message was sent.';
-                        // Conversion tracking page for Google Ads
+
+                        if (statusElement) {
+                            statusElement.textContent =
+                                'Thanks! Your message was sent.';
+                        }
+
                         window.location.assign('/thanks/');
-                    } else {
-                        try {
-                            const data = await response.json();
-                        } catch (_) { }
-                        if (statusEl) statusEl.textContent = 'Oops! Something went wrong. Please try again.';
+                        return;
                     }
-                } catch (e) {
-                    if (statusEl) statusEl.textContent = 'Network error. Please try again.';
+
+                    if (statusElement) {
+                        statusElement.textContent =
+                            'Oops! Something went wrong. Please try again.';
+                    }
+                } catch (error) {
+                    if (statusElement) {
+                        statusElement.textContent =
+                            'Network error. Please try again.';
+                    }
                 } finally {
-                    if (submitBtn) submitBtn.disabled = false;
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                    }
                 }
             });
         })();
