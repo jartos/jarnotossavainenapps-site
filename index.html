@@ -24,65 +24,28 @@
 
     <title>Flutter Consultant Finland | Jarno Tossavainen Apps</title>
 
-    <meta
-        name="description"
-        content="Senior Flutter consultant in Finland. I help companies design, build, and publish production-ready Flutter apps for iOS and Android."
-    >
+    <meta name="description"
+        content="Senior Flutter consultant in Finland. I help companies design, build, and publish production-ready Flutter apps for iOS and Android.">
 
     <meta name="robots" content="index, follow">
 
-    <link
-        rel="canonical"
-        href="https://www.jarnotossavainenapps.fi/"
-    >
+    <link rel="canonical" href="https://www.jarnotossavainenapps.fi/">
 
-    <link
-        rel="alternate"
-        hreflang="en"
-        href="https://www.jarnotossavainenapps.fi/"
-    >
+    <link rel="alternate" hreflang="en" href="https://www.jarnotossavainenapps.fi/">
 
-    <link
-        rel="alternate"
-        hreflang="fi"
-        href="https://www.jarnotossavainenapps.fi/fi/"
-    >
+    <link rel="alternate" hreflang="fi" href="https://www.jarnotossavainenapps.fi/fi/">
 
-    <link
-        rel="alternate"
-        hreflang="sv"
-        href="https://www.jarnotossavainenapps.fi/se/"
-    >
+    <link rel="alternate" hreflang="sv" href="https://www.jarnotossavainenapps.fi/se/">
 
-    <link
-        rel="alternate"
-        hreflang="no"
-        href="https://www.jarnotossavainenapps.fi/no/"
-    >
+    <link rel="alternate" hreflang="no" href="https://www.jarnotossavainenapps.fi/no/">
 
-    <link
-        rel="alternate"
-        hreflang="da"
-        href="https://www.jarnotossavainenapps.fi/da/"
-    >
+    <link rel="alternate" hreflang="da" href="https://www.jarnotossavainenapps.fi/da/">
 
-    <link
-        rel="alternate"
-        hreflang="de"
-        href="https://www.jarnotossavainenapps.fi/de/"
-    >
+    <link rel="alternate" hreflang="de" href="https://www.jarnotossavainenapps.fi/de/">
 
-    <link
-        rel="alternate"
-        hreflang="fr"
-        href="https://www.jarnotossavainenapps.fi/fr/"
-    >
+    <link rel="alternate" hreflang="fr" href="https://www.jarnotossavainenapps.fi/fr/">
 
-    <link
-        rel="alternate"
-        hreflang="x-default"
-        href="https://www.jarnotossavainenapps.fi/"
-    >
+    <link rel="alternate" hreflang="x-default" href="https://www.jarnotossavainenapps.fi/">
 
     <style>
         :root {
@@ -228,10 +191,10 @@
         .hero-app-preview {
             display: block;
             width: 100%;
-            max-width: 100%;
-            min-width: 0;
-            height: auto;
-            margin: 0;
+            height: clamp(140px, 18vw, 260px);
+            object-fit: contain;
+            object-position: center;
+
             opacity: 0;
             transform: translateY(10px) scale(0.94);
             transform-origin: center;
@@ -240,10 +203,7 @@
 
         .hero-app-preview.is-visible {
             animation:
-                hero-preview-zoom
-                800ms
-                cubic-bezier(0.22, 1, 0.36, 1)
-                forwards;
+                hero-preview-zoom 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
             animation-delay: var(--delay, 0ms);
         }
 
@@ -479,13 +439,7 @@
             <a href="/fr/" lang="fr">FR</a>
         </nav>
 
-        <img
-            class="flutter-main-logo"
-            src="/flutter_logo.png"
-            alt="Flutter logo"
-            loading="eager"
-            decoding="async"
-        >
+        <img class="flutter-main-logo" src="/flutter_logo.png" alt="Flutter logo" loading="eager" decoding="async">
 
         <h1>Flutter Consulting &amp; App Development</h1>
 
@@ -510,179 +464,66 @@
             <a href="#contact">Contact for consulting</a>
         </div>
 
-        <div
-            class="hero-app-galleries"
-            aria-label="Flutter application screenshots"
-        >
+        <div class="hero-app-galleries" aria-label="Flutter application screenshots">
             <!-- Rivi A: 1A–5A -->
-            <div
-                class="hero-app-gallery"
-                role="list"
-                aria-label="Research for JYU application screenshots"
-            >
-                <img
-                    class="hero-app-preview"
-                    src="/assets/app-images/1A.png"
-                    alt="Research for JYU observation recording screen"
-                    loading="eager"
-                    decoding="async"
-                    role="listitem"
-                    style="--delay: 0ms;"
-                >
+            <div class="hero-app-gallery" role="list" aria-label="Research for JYU application screenshots">
+                <img class="hero-app-preview" src="/assets/app-images/1A.png"
+                    alt="Research for JYU observation recording screen" loading="eager" decoding="async" role="listitem"
+                    style="--delay: 0ms;">
 
-                <img
-                    class="hero-app-preview"
-                    src="/assets/app-images/2A.png"
-                    alt="Research for JYU bird identification details"
-                    loading="lazy"
-                    decoding="async"
-                    role="listitem"
-                    style="--delay: 80ms;"
-                >
+                <img class="hero-app-preview" src="/assets/app-images/2A.png"
+                    alt="Research for JYU bird identification details" loading="lazy" decoding="async" role="listitem"
+                    style="--delay: 80ms;">
 
-                <img
-                    class="hero-app-preview"
-                    src="/assets/app-images/3A.png"
-                    alt="Research for JYU bird identification evaluation"
-                    loading="lazy"
-                    decoding="async"
-                    role="listitem"
-                    style="--delay: 160ms;"
-                >
+                <img class="hero-app-preview" src="/assets/app-images/3A.png"
+                    alt="Research for JYU bird identification evaluation" loading="lazy" decoding="async"
+                    role="listitem" style="--delay: 160ms;">
 
-                <img
-                    class="hero-app-preview"
-                    src="/assets/app-images/4A.png"
-                    alt="Research for JYU observations list"
-                    loading="lazy"
-                    decoding="async"
-                    role="listitem"
-                    style="--delay: 240ms;"
-                >
+                <img class="hero-app-preview" src="/assets/app-images/4A.png" alt="Research for JYU observations list"
+                    loading="lazy" decoding="async" role="listitem" style="--delay: 240ms;">
 
-                <img
-                    class="hero-app-preview"
-                    src="/assets/app-images/5A.png"
-                    alt="Research for JYU identified birds gallery"
-                    loading="lazy"
-                    decoding="async"
-                    role="listitem"
-                    style="--delay: 320ms;"
-                >
+                <img class="hero-app-preview" src="/assets/app-images/5A.png"
+                    alt="Research for JYU identified birds gallery" loading="lazy" decoding="async" role="listitem"
+                    style="--delay: 320ms;">
             </div>
 
             <!-- Rivi B: 1B–5B -->
-            <div
-                class="hero-app-gallery"
-                role="list"
-                aria-label="Invenco Vuoro application screenshots"
-            >
-                <img
-                    class="hero-app-preview"
-                    src="/assets/app-images/1B.png"
-                    alt="Invenco Vuoro work shift calendar"
-                    loading="lazy"
-                    decoding="async"
-                    role="listitem"
-                    style="--delay: 0ms;"
-                >
+            <div class="hero-app-gallery" role="list" aria-label="Invenco Vuoro application screenshots">
+                <img class="hero-app-preview" src="/assets/app-images/1B.png" alt="Invenco Vuoro work shift calendar"
+                    loading="lazy" decoding="async" role="listitem" style="--delay: 0ms;">
 
-                <img
-                    class="hero-app-preview"
-                    src="/assets/app-images/2B.png"
-                    alt="Invenco Vuoro work hours summary"
-                    loading="lazy"
-                    decoding="async"
-                    role="listitem"
-                    style="--delay: 80ms;"
-                >
+                <img class="hero-app-preview" src="/assets/app-images/2B.png" alt="Invenco Vuoro work hours summary"
+                    loading="lazy" decoding="async" role="listitem" style="--delay: 80ms;">
 
-                <img
-                    class="hero-app-preview"
-                    src="/assets/app-images/3B.png"
-                    alt="Invenco Vuoro available shifts dialog"
-                    loading="lazy"
-                    decoding="async"
-                    role="listitem"
-                    style="--delay: 160ms;"
-                >
+                <img class="hero-app-preview" src="/assets/app-images/3B.png"
+                    alt="Invenco Vuoro available shifts dialog" loading="lazy" decoding="async" role="listitem"
+                    style="--delay: 160ms;">
 
-                <img
-                    class="hero-app-preview"
-                    src="/assets/app-images/4B.png"
-                    alt="Invenco Vuoro team conversation"
-                    loading="lazy"
-                    decoding="async"
-                    role="listitem"
-                    style="--delay: 240ms;"
-                >
+                <img class="hero-app-preview" src="/assets/app-images/4B.png" alt="Invenco Vuoro team conversation"
+                    loading="lazy" decoding="async" role="listitem" style="--delay: 240ms;">
 
-                <img
-                    class="hero-app-preview"
-                    src="/assets/app-images/5B.png"
-                    alt="Invenco Vuoro project report dialog"
-                    loading="lazy"
-                    decoding="async"
-                    role="listitem"
-                    style="--delay: 320ms;"
-                >
+                <img class="hero-app-preview" src="/assets/app-images/5B.png" alt="Invenco Vuoro project report dialog"
+                    loading="lazy" decoding="async" role="listitem" style="--delay: 320ms;">
             </div>
 
             <!-- Rivi C: 1C–5C -->
-            <div
-                class="hero-app-gallery"
-                role="list"
-                aria-label="Better Mind application screenshots"
-            >
-                <img
-                    class="hero-app-preview"
-                    src="/assets/app-images/1C.png"
-                    alt="Better Mind application home screen"
-                    loading="lazy"
-                    decoding="async"
-                    role="listitem"
-                    style="--delay: 0ms;"
-                >
+            <div class="hero-app-gallery" role="list" aria-label="Better Mind application screenshots">
+                <img class="hero-app-preview" src="/assets/app-images/1C.png" alt="Better Mind application home screen"
+                    loading="lazy" decoding="async" role="listitem" style="--delay: 0ms;">
 
-                <img
-                    class="hero-app-preview"
-                    src="/assets/app-images/2C.png"
-                    alt="Better Mind affirmation player screen"
-                    loading="lazy"
-                    decoding="async"
-                    role="listitem"
-                    style="--delay: 80ms;"
-                >
+                <img class="hero-app-preview" src="/assets/app-images/2C.png"
+                    alt="Better Mind affirmation player screen" loading="lazy" decoding="async" role="listitem"
+                    style="--delay: 80ms;">
 
-                <img
-                    class="hero-app-preview"
-                    src="/assets/app-images/3C.png"
-                    alt="Better Mind journal and progress screen"
-                    loading="lazy"
-                    decoding="async"
-                    role="listitem"
-                    style="--delay: 160ms;"
-                >
+                <img class="hero-app-preview" src="/assets/app-images/3C.png"
+                    alt="Better Mind journal and progress screen" loading="lazy" decoding="async" role="listitem"
+                    style="--delay: 160ms;">
 
-                <img
-                    class="hero-app-preview"
-                    src="/assets/app-images/4C.png"
-                    alt="Better Mind reminder schedule screen"
-                    loading="lazy"
-                    decoding="async"
-                    role="listitem"
-                    style="--delay: 240ms;"
-                >
+                <img class="hero-app-preview" src="/assets/app-images/4C.png" alt="Better Mind reminder schedule screen"
+                    loading="lazy" decoding="async" role="listitem" style="--delay: 240ms;">
 
-                <img
-                    class="hero-app-preview"
-                    src="/assets/app-images/5C.png"
-                    alt="Better Mind trophies screen"
-                    loading="lazy"
-                    decoding="async"
-                    role="listitem"
-                    style="--delay: 320ms;"
-                >
+                <img class="hero-app-preview" src="/assets/app-images/5C.png" alt="Better Mind trophies screen"
+                    loading="lazy" decoding="async" role="listitem" style="--delay: 320ms;">
             </div>
         </div>
     </header>
@@ -690,19 +531,13 @@
     <main class="container">
         <section>
             <div class="image-row">
-                <img
-                    src="/omakuva.jpeg"
-                    alt="Jarno Tossavainen"
-                    loading="lazy"
-                    decoding="async"
-                    style="
+                <img src="/omakuva.jpeg" alt="Jarno Tossavainen" loading="lazy" decoding="async" style="
                         width: 90px;
                         height: 90px;
                         border-radius: 50%;
                         object-fit: cover;
                         box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
-                    "
-                >
+                    ">
             </div>
 
             <h2>About the Consultant</h2>
@@ -758,41 +593,29 @@
 
             <ul>
                 <li>
-                    <a
-                        href="https://play.google.com/store/apps/details?id=fi.jyu.app.researchforjyumobile"
-                        target="_blank"
-                        rel="noopener"
-                    >
+                    <a href="https://play.google.com/store/apps/details?id=fi.jyu.app.researchforjyumobile"
+                        target="_blank" rel="noopener">
                         Research for JYU Mobile
                     </a>
                 </li>
 
                 <li>
-                    <a
-                        href="https://play.google.com/store/apps/details?id=com.invenco.vuoro"
-                        target="_blank"
-                        rel="noopener"
-                    >
+                    <a href="https://play.google.com/store/apps/details?id=com.invenco.vuoro" target="_blank"
+                        rel="noopener">
                         Invenco Vuoro
                     </a>
                 </li>
 
                 <li>
-                    <a
-                        href="https://play.google.com/store/apps/details?id=com.invenco.cash"
-                        target="_blank"
-                        rel="noopener"
-                    >
+                    <a href="https://play.google.com/store/apps/details?id=com.invenco.cash" target="_blank"
+                        rel="noopener">
                         Invenco Cash
                     </a>
                 </li>
 
                 <li>
-                    <a
-                        href="https://apps.apple.com/fi/app/better-mind-affirmations/id6756210215?l=fi"
-                        target="_blank"
-                        rel="noopener"
-                    >
+                    <a href="https://apps.apple.com/fi/app/better-mind-affirmations/id6756210215?l=fi" target="_blank"
+                        rel="noopener">
                         Better Mind – Affirmations
                     </a>
                 </li>
@@ -832,19 +655,13 @@
                 project, feel free to get in touch.
             </p>
 
-            <img
-                src="/JTAppsLogo.png"
-                alt="Jarno Tossavainen Apps logo"
-                loading="lazy"
-                decoding="async"
-                style="
+            <img src="/JTAppsLogo.png" alt="Jarno Tossavainen Apps logo" loading="lazy" decoding="async" style="
                     width: 70px;
                     height: 70px;
                     margin-top: 30px;
                     border-radius: 12px;
                     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
-                "
-            >
+                ">
 
             <p>
                 <strong>Company:</strong>
@@ -872,11 +689,7 @@
                 <br>
 
                 <strong>LinkedIn:</strong>
-                <a
-                    href="https://www.linkedin.com/in/jarno-tossavainen/"
-                    target="_blank"
-                    rel="noopener"
-                >
+                <a href="https://www.linkedin.com/in/jarno-tossavainen/" target="_blank" rel="noopener">
                     Jarno Tossavainen
                 </a>
             </p>
@@ -891,42 +704,17 @@
                 as soon as possible.
             </p>
 
-            <form
-                id="contactForm"
-                action="https://formspree.io/f/mpqjwdzd"
-                method="POST"
-            >
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Your name"
-                    autocomplete="name"
-                    required
-                >
+            <form id="contactForm" action="https://formspree.io/f/mpqjwdzd" method="POST">
+                <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
 
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Your email"
-                    autocomplete="email"
-                    required
-                >
+                <input type="email" name="email" placeholder="Your email" autocomplete="email" required>
 
-                <textarea
-                    name="message"
-                    placeholder="Contact me about Flutter consulting"
-                    required
-                ></textarea>
+                <textarea name="message" placeholder="Contact me about Flutter consulting" required></textarea>
 
                 <button type="submit">Send</button>
             </form>
 
-            <p
-                id="contactFormStatus"
-                role="status"
-                aria-live="polite"
-                style="margin-top: 0.75rem;"
-            ></p>
+            <p id="contactFormStatus" role="status" aria-live="polite" style="margin-top: 0.75rem;"></p>
         </section>
     </main>
 
