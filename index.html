@@ -165,34 +165,31 @@
          * Kaikki kolme kuvagalleriaa.
          */
         .hero-app-galleries {
-            display: grid;
-            gap: clamp(0.75rem, 2vw, 1.5rem);
             width: 100%;
-            margin: 2.25rem 0 1.5rem;
+            margin: 3rem 0 1.5rem;
         }
 
         /*
-         * Jokaisella rivillä on aina viisi yhtä leveää saraketta.
-         */
+ * Keskittää yhden kuvan.
+ */
         .hero-app-gallery {
-            display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            align-items: start;
-            width: min(100%, 750px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
             margin: 0 auto;
-            gap: 0.3rem;
         }
 
         /*
-         * Kuvan leveys määräytyy grid-sarakkeen mukaan.
-         * Kiinteää pikselileveyttä ei käytetä.
-         */
+ * Kuva käyttää 50 % sisältöalueen leveydestä.
+ */
         .hero-app-preview {
             display: block;
-            width: 100%;
-            height: clamp(140px, 18vw, 260px);
+            width: 50%;
+            max-width: 900px;
+            height: auto;
+            margin: 0 auto;
             object-fit: contain;
-            object-position: center;
 
             opacity: 0;
             transform: translateY(10px) scale(0.94);
@@ -315,6 +312,10 @@
             .container {
                 padding-right: 0.75rem;
                 padding-left: 0.75rem;
+            }
+
+            .hero-app-preview {
+                width: 100%;
             }
 
             .hero-app-gallery {
@@ -581,7 +582,7 @@
 
         <!-- Rivi C: 1C–5C -->
         <div class="hero-app-gallery" role="list" aria-label="Better Mind application screenshots">
-            <img class="hero-app-preview" src="/assets/app-images/5.png" alt="Better Mind application home screen"
+            <img class="hero-app-preview" src="/assets/app-images/4.png" alt="Better Mind application home screen"
                 loading="lazy" decoding="async" role="listitem" style="--delay: 0ms;">
 
 
