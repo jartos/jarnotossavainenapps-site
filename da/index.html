@@ -1719,9 +1719,15 @@
             flex: 0 0 auto;
         }
 
+        /* Each column holds its screens twice. Scrolling one copy's length,
+           centred on the column, keeps both ends of the column out of view. */
         @keyframes wall-scroll {
+            from {
+                transform: translateY(calc(25% + var(--wgap) / 4));
+            }
+
             to {
-                transform: translateY(calc(-50% - var(--wgap) / 2));
+                transform: translateY(calc(-25% - var(--wgap) / 4));
             }
         }
 
@@ -1738,6 +1744,20 @@
 
         .screen-wall:hover .wall-col,
         .screen-wall.is-offscreen .wall-col {
+            animation-play-state: paused;
+        }
+
+        /* Load-in: the wall stays hidden and still until every screenshot is
+           decoded, then fades in (html.wall-wait is set by an inline script). */
+        .screen-wall__plane {
+            transition: opacity 1000ms ease;
+        }
+
+        .wall-wait .screen-wall:not(.is-loaded) .screen-wall__plane {
+            opacity: 0;
+        }
+
+        .wall-wait .screen-wall:not(.is-loaded) .wall-col {
             animation-play-state: paused;
         }
 
@@ -1783,8 +1803,8 @@
 
         /* --- stage visual --- */
         .work-stage__visual {
-            --ph: min(calc(100svh - 72px - 9rem), 600px);
-            --ph: min(calc(100cqh - 8.5rem), 620px, 100cqw);
+            --ph: calc(min(calc(100svh - 72px - 9rem), 600px) * 0.75);
+            --ph: calc(min(calc(100cqh - 8.5rem), 620px, 100cqw) * 0.75);
             --p: 0;
             position: absolute;
             inset: 0 0 4.5rem;
@@ -1985,6 +2005,23 @@
         .work-set.is-active .work-chip {
             opacity: 1;
             transform: none;
+        }
+
+        /* Stage phones are drawn at 75 %, so pull the chips in with them. */
+        @media (min-width: 961px) {
+            .work-chip--1 {
+                top: 23%;
+                left: 13%;
+            }
+
+            .work-chip--2 {
+                right: 11%;
+            }
+
+            .work-chip--3 {
+                bottom: 19%;
+                left: 16%;
+            }
         }
 
         .work-set.is-active .work-chip--1 { transition-delay: 350ms; }
@@ -2439,6 +2476,15 @@
             !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             document.documentElement.classList.add('reveal-on');
         }
+
+        // Hero screen wall waits for its screenshots before fading in (see the showcase script).
+        document.documentElement.classList.add('wall-wait');
+        setTimeout(function () {
+            var wall = document.querySelector('.screen-wall');
+            if (wall) {
+                wall.classList.add('is-loaded');
+            }
+        }, 6000);
     </script>
 </head>
 
@@ -2549,40 +2595,40 @@
                 <div class="screen-wall" role="img" aria-label="Skærme fra Flutter-apps, jeg har bygget">
                     <div class="screen-wall__plane">
                         <div class="wall-col">
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-record-sm.webp" srcset="/assets/app-images/screens/jyu-record-sm.webp 240w, /assets/app-images/screens/jyu-record.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-observations-sm.webp" srcset="/assets/app-images/screens/jyu-observations-sm.webp 240w, /assets/app-images/screens/jyu-observations.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-identification-sm.webp" srcset="/assets/app-images/screens/jyu-identification-sm.webp 240w, /assets/app-images/screens/jyu-identification.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-review-sm.webp" srcset="/assets/app-images/screens/jyu-review-sm.webp 240w, /assets/app-images/screens/jyu-review.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-species-sm.webp" srcset="/assets/app-images/screens/jyu-species-sm.webp 240w, /assets/app-images/screens/jyu-species.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-record-sm.webp" srcset="/assets/app-images/screens/jyu-record-sm.webp 240w, /assets/app-images/screens/jyu-record.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-observations-sm.webp" srcset="/assets/app-images/screens/jyu-observations-sm.webp 240w, /assets/app-images/screens/jyu-observations.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-identification-sm.webp" srcset="/assets/app-images/screens/jyu-identification-sm.webp 240w, /assets/app-images/screens/jyu-identification.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-review-sm.webp" srcset="/assets/app-images/screens/jyu-review-sm.webp 240w, /assets/app-images/screens/jyu-review.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-species-sm.webp" srcset="/assets/app-images/screens/jyu-species-sm.webp 240w, /assets/app-images/screens/jyu-species.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-record-sm.webp" srcset="/assets/app-images/screens/jyu-record-sm.webp 240w, /assets/app-images/screens/jyu-record.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-observations-sm.webp" srcset="/assets/app-images/screens/jyu-observations-sm.webp 240w, /assets/app-images/screens/jyu-observations.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-identification-sm.webp" srcset="/assets/app-images/screens/jyu-identification-sm.webp 240w, /assets/app-images/screens/jyu-identification.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-review-sm.webp" srcset="/assets/app-images/screens/jyu-review-sm.webp 240w, /assets/app-images/screens/jyu-review.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-species-sm.webp" srcset="/assets/app-images/screens/jyu-species-sm.webp 240w, /assets/app-images/screens/jyu-species.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-record-sm.webp" srcset="/assets/app-images/screens/jyu-record-sm.webp 240w, /assets/app-images/screens/jyu-record.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-observations-sm.webp" srcset="/assets/app-images/screens/jyu-observations-sm.webp 240w, /assets/app-images/screens/jyu-observations.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-identification-sm.webp" srcset="/assets/app-images/screens/jyu-identification-sm.webp 240w, /assets/app-images/screens/jyu-identification.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-review-sm.webp" srcset="/assets/app-images/screens/jyu-review-sm.webp 240w, /assets/app-images/screens/jyu-review.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-species-sm.webp" srcset="/assets/app-images/screens/jyu-species-sm.webp 240w, /assets/app-images/screens/jyu-species.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
                         </div>
                         <div class="wall-col">
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-affirmations-sm.webp" srcset="/assets/app-images/screens/bettermind-affirmations-sm.webp 240w, /assets/app-images/screens/bettermind-affirmations.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-reminders-sm.webp" srcset="/assets/app-images/screens/bettermind-reminders-sm.webp 240w, /assets/app-images/screens/bettermind-reminders.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-card-sm.webp" srcset="/assets/app-images/screens/bettermind-card-sm.webp 240w, /assets/app-images/screens/bettermind-card.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-trophies-sm.webp" srcset="/assets/app-images/screens/bettermind-trophies-sm.webp 240w, /assets/app-images/screens/bettermind-trophies.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-journal-sm.webp" srcset="/assets/app-images/screens/bettermind-journal-sm.webp 240w, /assets/app-images/screens/bettermind-journal.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-affirmations-sm.webp" srcset="/assets/app-images/screens/bettermind-affirmations-sm.webp 240w, /assets/app-images/screens/bettermind-affirmations.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-reminders-sm.webp" srcset="/assets/app-images/screens/bettermind-reminders-sm.webp 240w, /assets/app-images/screens/bettermind-reminders.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-card-sm.webp" srcset="/assets/app-images/screens/bettermind-card-sm.webp 240w, /assets/app-images/screens/bettermind-card.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-trophies-sm.webp" srcset="/assets/app-images/screens/bettermind-trophies-sm.webp 240w, /assets/app-images/screens/bettermind-trophies.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-journal-sm.webp" srcset="/assets/app-images/screens/bettermind-journal-sm.webp 240w, /assets/app-images/screens/bettermind-journal.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-affirmations-sm.webp" srcset="/assets/app-images/screens/bettermind-affirmations-sm.webp 240w, /assets/app-images/screens/bettermind-affirmations.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-reminders-sm.webp" srcset="/assets/app-images/screens/bettermind-reminders-sm.webp 240w, /assets/app-images/screens/bettermind-reminders.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-card-sm.webp" srcset="/assets/app-images/screens/bettermind-card-sm.webp 240w, /assets/app-images/screens/bettermind-card.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-trophies-sm.webp" srcset="/assets/app-images/screens/bettermind-trophies-sm.webp 240w, /assets/app-images/screens/bettermind-trophies.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-journal-sm.webp" srcset="/assets/app-images/screens/bettermind-journal-sm.webp 240w, /assets/app-images/screens/bettermind-journal.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-affirmations-sm.webp" srcset="/assets/app-images/screens/bettermind-affirmations-sm.webp 240w, /assets/app-images/screens/bettermind-affirmations.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-reminders-sm.webp" srcset="/assets/app-images/screens/bettermind-reminders-sm.webp 240w, /assets/app-images/screens/bettermind-reminders.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-card-sm.webp" srcset="/assets/app-images/screens/bettermind-card-sm.webp 240w, /assets/app-images/screens/bettermind-card.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-trophies-sm.webp" srcset="/assets/app-images/screens/bettermind-trophies-sm.webp 240w, /assets/app-images/screens/bettermind-trophies.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-journal-sm.webp" srcset="/assets/app-images/screens/bettermind-journal-sm.webp 240w, /assets/app-images/screens/bettermind-journal.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
                         </div>
                         <div class="wall-col">
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-open-shifts-sm.webp" srcset="/assets/app-images/screens/vuoro-open-shifts-sm.webp 240w, /assets/app-images/screens/vuoro-open-shifts.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-hours-sm.webp" srcset="/assets/app-images/screens/vuoro-hours-sm.webp 240w, /assets/app-images/screens/vuoro-hours.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-chat-sm.webp" srcset="/assets/app-images/screens/vuoro-chat-sm.webp 240w, /assets/app-images/screens/vuoro-chat.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-report-sm.webp" srcset="/assets/app-images/screens/vuoro-report-sm.webp 240w, /assets/app-images/screens/vuoro-report.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-shifts-sm.webp" srcset="/assets/app-images/screens/vuoro-shifts-sm.webp 240w, /assets/app-images/screens/vuoro-shifts.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-open-shifts-sm.webp" srcset="/assets/app-images/screens/vuoro-open-shifts-sm.webp 240w, /assets/app-images/screens/vuoro-open-shifts.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-hours-sm.webp" srcset="/assets/app-images/screens/vuoro-hours-sm.webp 240w, /assets/app-images/screens/vuoro-hours.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-chat-sm.webp" srcset="/assets/app-images/screens/vuoro-chat-sm.webp 240w, /assets/app-images/screens/vuoro-chat.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-report-sm.webp" srcset="/assets/app-images/screens/vuoro-report-sm.webp 240w, /assets/app-images/screens/vuoro-report.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-shifts-sm.webp" srcset="/assets/app-images/screens/vuoro-shifts-sm.webp 240w, /assets/app-images/screens/vuoro-shifts.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-open-shifts-sm.webp" srcset="/assets/app-images/screens/vuoro-open-shifts-sm.webp 240w, /assets/app-images/screens/vuoro-open-shifts.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-hours-sm.webp" srcset="/assets/app-images/screens/vuoro-hours-sm.webp 240w, /assets/app-images/screens/vuoro-hours.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-chat-sm.webp" srcset="/assets/app-images/screens/vuoro-chat-sm.webp 240w, /assets/app-images/screens/vuoro-chat.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-report-sm.webp" srcset="/assets/app-images/screens/vuoro-report-sm.webp 240w, /assets/app-images/screens/vuoro-report.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-shifts-sm.webp" srcset="/assets/app-images/screens/vuoro-shifts-sm.webp 240w, /assets/app-images/screens/vuoro-shifts.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-open-shifts-sm.webp" srcset="/assets/app-images/screens/vuoro-open-shifts-sm.webp 240w, /assets/app-images/screens/vuoro-open-shifts.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-hours-sm.webp" srcset="/assets/app-images/screens/vuoro-hours-sm.webp 240w, /assets/app-images/screens/vuoro-hours.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-chat-sm.webp" srcset="/assets/app-images/screens/vuoro-chat-sm.webp 240w, /assets/app-images/screens/vuoro-chat.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-report-sm.webp" srcset="/assets/app-images/screens/vuoro-report-sm.webp 240w, /assets/app-images/screens/vuoro-report.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-shifts-sm.webp" srcset="/assets/app-images/screens/vuoro-shifts-sm.webp 240w, /assets/app-images/screens/vuoro-shifts.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
                         </div>
                         <div class="wall-col">
                             <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-identification-sm.webp" srcset="/assets/app-images/screens/jyu-identification-sm.webp 240w, /assets/app-images/screens/jyu-identification.webp 432w" sizes="140px" alt="" width="240" height="520" loading="eager" decoding="async"></div></div>
@@ -2621,40 +2667,40 @@
                             <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-hours-sm.webp" srcset="/assets/app-images/screens/vuoro-hours-sm.webp 240w, /assets/app-images/screens/vuoro-hours.webp 432w" sizes="140px" alt="" width="240" height="520" loading="eager" decoding="async"></div></div>
                         </div>
                         <div class="wall-col">
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-species-sm.webp" srcset="/assets/app-images/screens/jyu-species-sm.webp 240w, /assets/app-images/screens/jyu-species.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-record-sm.webp" srcset="/assets/app-images/screens/jyu-record-sm.webp 240w, /assets/app-images/screens/jyu-record.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-observations-sm.webp" srcset="/assets/app-images/screens/jyu-observations-sm.webp 240w, /assets/app-images/screens/jyu-observations.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-identification-sm.webp" srcset="/assets/app-images/screens/jyu-identification-sm.webp 240w, /assets/app-images/screens/jyu-identification.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-review-sm.webp" srcset="/assets/app-images/screens/jyu-review-sm.webp 240w, /assets/app-images/screens/jyu-review.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-species-sm.webp" srcset="/assets/app-images/screens/jyu-species-sm.webp 240w, /assets/app-images/screens/jyu-species.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-record-sm.webp" srcset="/assets/app-images/screens/jyu-record-sm.webp 240w, /assets/app-images/screens/jyu-record.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-observations-sm.webp" srcset="/assets/app-images/screens/jyu-observations-sm.webp 240w, /assets/app-images/screens/jyu-observations.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-identification-sm.webp" srcset="/assets/app-images/screens/jyu-identification-sm.webp 240w, /assets/app-images/screens/jyu-identification.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-review-sm.webp" srcset="/assets/app-images/screens/jyu-review-sm.webp 240w, /assets/app-images/screens/jyu-review.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-species-sm.webp" srcset="/assets/app-images/screens/jyu-species-sm.webp 240w, /assets/app-images/screens/jyu-species.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-record-sm.webp" srcset="/assets/app-images/screens/jyu-record-sm.webp 240w, /assets/app-images/screens/jyu-record.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-observations-sm.webp" srcset="/assets/app-images/screens/jyu-observations-sm.webp 240w, /assets/app-images/screens/jyu-observations.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-identification-sm.webp" srcset="/assets/app-images/screens/jyu-identification-sm.webp 240w, /assets/app-images/screens/jyu-identification.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-review-sm.webp" srcset="/assets/app-images/screens/jyu-review-sm.webp 240w, /assets/app-images/screens/jyu-review.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-species-sm.webp" srcset="/assets/app-images/screens/jyu-species-sm.webp 240w, /assets/app-images/screens/jyu-species.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-record-sm.webp" srcset="/assets/app-images/screens/jyu-record-sm.webp 240w, /assets/app-images/screens/jyu-record.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-observations-sm.webp" srcset="/assets/app-images/screens/jyu-observations-sm.webp 240w, /assets/app-images/screens/jyu-observations.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-identification-sm.webp" srcset="/assets/app-images/screens/jyu-identification-sm.webp 240w, /assets/app-images/screens/jyu-identification.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/jyu-review-sm.webp" srcset="/assets/app-images/screens/jyu-review-sm.webp 240w, /assets/app-images/screens/jyu-review.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
                         </div>
                         <div class="wall-col">
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-journal-sm.webp" srcset="/assets/app-images/screens/bettermind-journal-sm.webp 240w, /assets/app-images/screens/bettermind-journal.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-affirmations-sm.webp" srcset="/assets/app-images/screens/bettermind-affirmations-sm.webp 240w, /assets/app-images/screens/bettermind-affirmations.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-reminders-sm.webp" srcset="/assets/app-images/screens/bettermind-reminders-sm.webp 240w, /assets/app-images/screens/bettermind-reminders.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-card-sm.webp" srcset="/assets/app-images/screens/bettermind-card-sm.webp 240w, /assets/app-images/screens/bettermind-card.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-trophies-sm.webp" srcset="/assets/app-images/screens/bettermind-trophies-sm.webp 240w, /assets/app-images/screens/bettermind-trophies.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-journal-sm.webp" srcset="/assets/app-images/screens/bettermind-journal-sm.webp 240w, /assets/app-images/screens/bettermind-journal.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-affirmations-sm.webp" srcset="/assets/app-images/screens/bettermind-affirmations-sm.webp 240w, /assets/app-images/screens/bettermind-affirmations.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-reminders-sm.webp" srcset="/assets/app-images/screens/bettermind-reminders-sm.webp 240w, /assets/app-images/screens/bettermind-reminders.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-card-sm.webp" srcset="/assets/app-images/screens/bettermind-card-sm.webp 240w, /assets/app-images/screens/bettermind-card.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-trophies-sm.webp" srcset="/assets/app-images/screens/bettermind-trophies-sm.webp 240w, /assets/app-images/screens/bettermind-trophies.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-journal-sm.webp" srcset="/assets/app-images/screens/bettermind-journal-sm.webp 240w, /assets/app-images/screens/bettermind-journal.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-affirmations-sm.webp" srcset="/assets/app-images/screens/bettermind-affirmations-sm.webp 240w, /assets/app-images/screens/bettermind-affirmations.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-reminders-sm.webp" srcset="/assets/app-images/screens/bettermind-reminders-sm.webp 240w, /assets/app-images/screens/bettermind-reminders.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-card-sm.webp" srcset="/assets/app-images/screens/bettermind-card-sm.webp 240w, /assets/app-images/screens/bettermind-card.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-trophies-sm.webp" srcset="/assets/app-images/screens/bettermind-trophies-sm.webp 240w, /assets/app-images/screens/bettermind-trophies.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-journal-sm.webp" srcset="/assets/app-images/screens/bettermind-journal-sm.webp 240w, /assets/app-images/screens/bettermind-journal.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-affirmations-sm.webp" srcset="/assets/app-images/screens/bettermind-affirmations-sm.webp 240w, /assets/app-images/screens/bettermind-affirmations.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-reminders-sm.webp" srcset="/assets/app-images/screens/bettermind-reminders-sm.webp 240w, /assets/app-images/screens/bettermind-reminders.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-card-sm.webp" srcset="/assets/app-images/screens/bettermind-card-sm.webp 240w, /assets/app-images/screens/bettermind-card.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/bettermind-trophies-sm.webp" srcset="/assets/app-images/screens/bettermind-trophies-sm.webp 240w, /assets/app-images/screens/bettermind-trophies.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
                         </div>
                         <div class="wall-col">
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-shifts-sm.webp" srcset="/assets/app-images/screens/vuoro-shifts-sm.webp 240w, /assets/app-images/screens/vuoro-shifts.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-open-shifts-sm.webp" srcset="/assets/app-images/screens/vuoro-open-shifts-sm.webp 240w, /assets/app-images/screens/vuoro-open-shifts.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-hours-sm.webp" srcset="/assets/app-images/screens/vuoro-hours-sm.webp 240w, /assets/app-images/screens/vuoro-hours.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-chat-sm.webp" srcset="/assets/app-images/screens/vuoro-chat-sm.webp 240w, /assets/app-images/screens/vuoro-chat.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-report-sm.webp" srcset="/assets/app-images/screens/vuoro-report-sm.webp 240w, /assets/app-images/screens/vuoro-report.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-shifts-sm.webp" srcset="/assets/app-images/screens/vuoro-shifts-sm.webp 240w, /assets/app-images/screens/vuoro-shifts.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-open-shifts-sm.webp" srcset="/assets/app-images/screens/vuoro-open-shifts-sm.webp 240w, /assets/app-images/screens/vuoro-open-shifts.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-hours-sm.webp" srcset="/assets/app-images/screens/vuoro-hours-sm.webp 240w, /assets/app-images/screens/vuoro-hours.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-chat-sm.webp" srcset="/assets/app-images/screens/vuoro-chat-sm.webp 240w, /assets/app-images/screens/vuoro-chat.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
-                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-report-sm.webp" srcset="/assets/app-images/screens/vuoro-report-sm.webp 240w, /assets/app-images/screens/vuoro-report.webp 432w" sizes="140px" alt="" width="240" height="520" loading="lazy" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-shifts-sm.webp" srcset="/assets/app-images/screens/vuoro-shifts-sm.webp 240w, /assets/app-images/screens/vuoro-shifts.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-open-shifts-sm.webp" srcset="/assets/app-images/screens/vuoro-open-shifts-sm.webp 240w, /assets/app-images/screens/vuoro-open-shifts.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-hours-sm.webp" srcset="/assets/app-images/screens/vuoro-hours-sm.webp 240w, /assets/app-images/screens/vuoro-hours.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-chat-sm.webp" srcset="/assets/app-images/screens/vuoro-chat-sm.webp 240w, /assets/app-images/screens/vuoro-chat.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-report-sm.webp" srcset="/assets/app-images/screens/vuoro-report-sm.webp 240w, /assets/app-images/screens/vuoro-report.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-shifts-sm.webp" srcset="/assets/app-images/screens/vuoro-shifts-sm.webp 240w, /assets/app-images/screens/vuoro-shifts.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-open-shifts-sm.webp" srcset="/assets/app-images/screens/vuoro-open-shifts-sm.webp 240w, /assets/app-images/screens/vuoro-open-shifts.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-hours-sm.webp" srcset="/assets/app-images/screens/vuoro-hours-sm.webp 240w, /assets/app-images/screens/vuoro-hours.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-chat-sm.webp" srcset="/assets/app-images/screens/vuoro-chat-sm.webp 240w, /assets/app-images/screens/vuoro-chat.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
+                            <div class="phone"><div class="phone__screen"><img src="/assets/app-images/screens/vuoro-report-sm.webp" srcset="/assets/app-images/screens/vuoro-report-sm.webp 240w, /assets/app-images/screens/vuoro-report.webp 432w" sizes="140px" alt="" width="240" height="520" decoding="async"></div></div>
                         </div>
                     </div>
                 </div>
@@ -3707,6 +3753,91 @@
 
             var wall = document.querySelector('.screen-wall');
             var plane = wall ? wall.querySelector('.screen-wall__plane') : null;
+
+            /*
+             * Fill the wall: clone columns until the tilted plane is wide enough
+             * to cover the whole hero, then fade it in once every image is decoded.
+             * Direction, offset and speed are set inline so adding columns later
+             * (on resize) never changes the existing ones.
+             */
+            var wallDurs = [78, 64, 84, 70, 90, 66, 80, 72, 86];
+            var wallSrc = plane ? Array.prototype.slice.call(plane.querySelectorAll('.wall-col')) : [];
+            var wallAdded = 0;
+
+            function setCol(col, down, dur) {
+                col.setAttribute('data-down', down ? '1' : '0');
+                col.style.setProperty('--dur', dur + 's');
+                col.style.animationDirection = down ? 'reverse' : 'normal';
+                col.style.marginTop = down ? 'calc(var(--wpw) * -0.9)' : '0px';
+            }
+
+            function fillWall() {
+                var n = wallSrc.length;
+                if (!n) {
+                    return;
+                }
+                var target = wall.clientWidth * 1.15 + wall.clientHeight * 0.5;
+                var guard = 0;
+                while (plane.offsetWidth < target && guard++ < 40) {
+                    var k = wallAdded++;
+                    var toEnd = k % 2 === 0;
+                    var j = Math.floor(k / 2) % n;
+                    var clone = (toEnd ? wallSrc[j] : wallSrc[n - 1 - j]).cloneNode(true);
+                    var edge = toEnd ? plane.lastElementChild : plane.firstElementChild;
+                    setCol(clone, edge.getAttribute('data-down') !== '1', wallDurs[(k * 5 + 2) % wallDurs.length]);
+                    if (toEnd) {
+                        plane.appendChild(clone);
+                    } else {
+                        plane.insertBefore(clone, plane.firstChild);
+                    }
+                }
+            }
+
+            function whenDecoded(img) {
+                if (img.decode) {
+                    return img.decode().catch(function () {});
+                }
+                return new Promise(function (resolve) {
+                    if (img.complete) {
+                        resolve();
+                        return;
+                    }
+                    img.addEventListener('load', resolve);
+                    img.addEventListener('error', resolve);
+                });
+            }
+
+            function preloadWork() {
+                Array.prototype.forEach.call(document.querySelectorAll('.work-stage img[loading="lazy"]'), function (img) {
+                    img.loading = 'eager';
+                });
+            }
+
+            if (wall && plane) {
+                wallSrc.forEach(function (col, i) {
+                    setCol(col, i % 2 === 1, wallDurs[i % wallDurs.length]);
+                });
+                fillWall();
+
+                var revealWall = function () {
+                    window.requestAnimationFrame(function () {
+                        wall.classList.add('is-loaded');
+                        setTimeout(preloadWork, 600);
+                    });
+                };
+
+                if (window.Promise) {
+                    Promise.all(Array.prototype.map.call(wall.querySelectorAll('img'), whenDecoded)).then(revealWall);
+                } else {
+                    revealWall();
+                }
+
+                var fillTimer = 0;
+                window.addEventListener('resize', function () {
+                    clearTimeout(fillTimer);
+                    fillTimer = setTimeout(fillWall, 200);
+                });
+            }
 
             // Pause the wall animation while it is off screen.
             if (wall && 'IntersectionObserver' in window) {
