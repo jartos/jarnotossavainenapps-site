@@ -1563,6 +1563,32 @@
                 animation: none;
             }
         }
+
+        /* =========================================================
+         * Scroll reveal: each block fades in once as it enters view.
+         * Hidden only when JS has enabled it (html.reveal-on).
+         * ========================================================= */
+        .reveal-on main .section-head:not(.revealed),
+        .reveal-on main .features > li:not(.revealed),
+        .reveal-on main .panel:not(.revealed),
+        .reveal-on main .ref-links > li:not(.revealed),
+        .reveal-on main .dc-usecase:not(.revealed),
+        .reveal-on main .card:not(.revealed),
+        .reveal-on main .form-card:not(.revealed),
+        .reveal-on .site-footer .container:not(.revealed) {
+            opacity: 0;
+        }
+
+        .revealing {
+            animation: reveal-rise 600ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms) backwards;
+        }
+
+        @keyframes reveal-rise {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+        }
     </style>
 
     <script type="application/ld+json">
@@ -1644,6 +1670,13 @@
                     }
                 ]
             }
+        }
+    </script>
+    <script>
+        // Enable scroll reveal before first paint (skipped for reduced motion / old browsers).
+        if ('IntersectionObserver' in window &&
+            !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.classList.add('reveal-on');
         }
     </script>
 </head>
@@ -2592,6 +2625,45 @@
                     }
                 }
             });
+        })();
+    </script>
+    <script>
+        // Scroll reveal: fade each block in once, then stop observing it.
+        (function () {
+            var root = document.documentElement;
+            if (!root.classList.contains('reveal-on')) return;
+
+            var targets = document.querySelectorAll('main .section-head, main .features > li, main .panel, main .ref-links > li, main .dc-usecase, main .card, main .form-card, .site-footer .container');
+
+            function done(el) {
+                el.classList.remove('revealing');
+                el.style.removeProperty('--reveal-delay');
+            }
+
+            var observer = new IntersectionObserver(function (entries) {
+                var batch = 0;
+                entries.forEach(function (entry) {
+                    var el = entry.target;
+                    var above = entry.boundingClientRect.bottom < 0;
+                    if (!entry.isIntersecting && !above) return;
+                    observer.unobserve(el);
+                    if (above) {
+                        // Already scrolled past (e.g. anchor link or reload): show without animating.
+                        el.classList.add('revealed');
+                        return;
+                    }
+                    el.style.setProperty('--reveal-delay', Math.min(batch, 4) * 70 + 'ms');
+                    batch++;
+                    el.addEventListener('animationend', function onEnd(e) {
+                        if (e.target !== el) return;
+                        el.removeEventListener('animationend', onEnd);
+                        done(el);
+                    });
+                    el.classList.add('revealing', 'revealed');
+                });
+            }, { rootMargin: '0px 0px -40px 0px' });
+
+            targets.forEach(function (el) { observer.observe(el); });
         })();
     </script>
 </body>
