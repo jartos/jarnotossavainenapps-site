@@ -1803,8 +1803,8 @@
 
         /* --- stage visual --- */
         .work-stage__visual {
-            --ph: calc(min(calc(100svh - 72px - 9rem), 600px) * 0.75);
-            --ph: calc(min(calc(100cqh - 8.5rem), 620px, 100cqw) * 0.75);
+            --ph: calc(min(calc(100svh - 72px - 9rem), 600px) * 0.5625);
+            --ph: calc(min(calc(100cqh - 8.5rem), 620px, 100cqw) * 0.5625);
             --p: 0;
             position: absolute;
             inset: 0 0 4.5rem;
@@ -2007,20 +2007,21 @@
             transform: none;
         }
 
-        /* Stage phones are drawn at 75 %, so pull the chips in with them. */
+        /* Stage phones are drawn smaller (56 %), so pull the chips in with them. */
         @media (min-width: 961px) {
             .work-chip--1 {
-                top: 23%;
-                left: 13%;
+                top: 29%;
+                left: 21%;
             }
 
             .work-chip--2 {
-                right: 11%;
+                top: 46%;
+                right: 19%;
             }
 
             .work-chip--3 {
-                bottom: 19%;
-                left: 16%;
+                bottom: 26%;
+                left: 23%;
             }
         }
 
@@ -2266,8 +2267,8 @@
             }
 
             .work-stage__visual {
-                --ph: calc(clamp(330px, 54svh, 540px) - 6.5rem);
-                --ph: min(calc(100cqh - 5.25rem), 100cqw);
+                --ph: calc((clamp(330px, 54svh, 540px) - 6.5rem) * 0.75);
+                --ph: calc(min(calc(100cqh - 5.25rem), 100cqw) * 0.75);
                 inset: 0.75rem 0 3.5rem;
             }
 
@@ -2309,11 +2310,17 @@
             }
 
             .work-chip--1 {
-                left: 4%;
+                top: 20%;
+                left: 16%;
             }
 
             .work-chip--2 {
-                right: 3%;
+                right: 15%;
+            }
+
+            .work-chip--3 {
+                bottom: 16%;
+                left: 18%;
             }
 
             .work-progress {
